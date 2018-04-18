@@ -26,11 +26,10 @@
     }
   ],
   "require": {
-    "php": "~7.0.0|~7.1.0",
     "magento/framework": ">=100.2.0",
     "magento/module-quick-order": ">=100.0.0",
     "magento/magento-composer-installer": "*",
-    "smile/elasticsuite": "^2.5.0"
+    "smile/elasticsuite": "^2.5.8"
   },
   "require-dev": {
      "smile/magento2-smilelab-quality-suite": "^1.1.0"
