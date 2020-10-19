@@ -14,6 +14,7 @@ namespace Smile\ElasticsuiteQuickOrder\Model\ResourceModel\Product;
 
 use Magento\Catalog\Api\Data\ProductInterface;
 use Magento\Catalog\Model\Product\Visibility;
+use Magento\CatalogSearch\Model\ResourceModel\Fulltext\Collection\SearchResultApplierInterfaceFactory;
 
 /**
  * Custom Resource model for Product Suggest.
@@ -38,18 +39,20 @@ class Suggest extends \Magento\QuickOrder\Model\ResourceModel\Product\Suggest
      * Suggest constructor.
      *
      * @param \Magento\QuickOrder\Model\CatalogPermissions\Permissions        $permissions        Catalog Permissions
-     * @param \Magento\Framework\Search\Adapter\Mysql\TemporaryStorageFactory $tempStorageFactory Temporary Storage
      * @param \Magento\Framework\DB\Helper                                    $dbHelper           DB Helper
+     * @param Visibility|null $catalogProductVisibility
+     * @param SearchResultApplierInterfaceFactory|null $searchResultApplierInterfaceFactory
      */
     public function __construct(
-        \Magento\QuickOrder\Model\CatalogPermissions\Permissions $permissions,
-        \Magento\Framework\Search\Adapter\Mysql\TemporaryStorageFactory $tempStorageFactory,
-        \Magento\Framework\DB\Helper $dbHelper
+        \Magento\QuickOrder\Model\CatalogPermissions\Permissions $permissions,        
+        \Magento\Framework\DB\Helper $dbHelper,
+        Visibility $catalogProductVisibility = null,
+        SearchResultApplierInterfaceFactory $searchResultApplierInterfaceFactory = null
     ) {
         $this->permissions = $permissions;
         $this->dbHelper    = $dbHelper;
 
-        parent::__construct($permissions, $tempStorageFactory, $dbHelper);
+        parent::__construct($permissions, $dbHelper, $catalogProductVisibility, $searchResultApplierInterfaceFactory);
     }
 
     /**
