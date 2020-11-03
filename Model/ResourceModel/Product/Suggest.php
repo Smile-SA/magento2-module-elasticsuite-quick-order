@@ -37,19 +37,17 @@ class Suggest extends \Magento\QuickOrder\Model\ResourceModel\Product\Suggest
     /**
      * Suggest constructor.
      *
-     * @param \Magento\QuickOrder\Model\CatalogPermissions\Permissions        $permissions        Catalog Permissions
-     * @param \Magento\Framework\Search\Adapter\Mysql\TemporaryStorageFactory $tempStorageFactory Temporary Storage
-     * @param \Magento\Framework\DB\Helper                                    $dbHelper           DB Helper
+     * @param \Magento\QuickOrder\Model\CatalogPermissions\Permissions  $permissions        Catalog Permissions
+     * @param \Magento\Framework\DB\Helper                              $dbHelper           DB Helper
      */
     public function __construct(
         \Magento\QuickOrder\Model\CatalogPermissions\Permissions $permissions,
-        \Magento\Framework\Search\Adapter\Mysql\TemporaryStorageFactory $tempStorageFactory,
         \Magento\Framework\DB\Helper $dbHelper
     ) {
         $this->permissions = $permissions;
         $this->dbHelper    = $dbHelper;
 
-        parent::__construct($permissions, $tempStorageFactory, $dbHelper);
+        parent::__construct($permissions, $dbHelper);
     }
 
     /**
