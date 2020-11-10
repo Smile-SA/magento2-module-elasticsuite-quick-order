@@ -16,9 +16,15 @@
  */
  -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <type name="\Magento\QuickOrder\Model\Product\Suggest\DataProvider">
+    <virtualType name="elasticsuiteSearchResultApplierInterfaceFactory" type="Magento\CatalogSearch\Model\ResourceModel\Fulltext\Collection\SearchResultApplierInterfaceFactory">
         <arguments>
-            <argument name="suggestResource" xsi:type="object">\Smile\ElasticsuiteQuickOrder\Model\ResourceModel\Product\Suggest</argument>
+            <argument name="instanceName" xsi:type="string">Smile\ElasticsuiteCatalog\Model\ResourceModel\Product\Fulltext\Collection\SearchResultApplier</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Magento\QuickOrder\Model\ResourceModel\Product\Suggest">
+        <arguments>
+            <argument name="searchResultApplierInterfaceFactory" xsi:type="object">elasticsuiteSearchResultApplierInterfaceFactory</argument>
         </arguments>
     </type>
 </config>
