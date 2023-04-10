@@ -29,7 +29,7 @@
     "magento/framework": ">=100.2.0",
     "magento/module-quick-order": ">=100.0.0",
     "magento/magento-composer-installer": "*",
-    "smile/elasticsuite": "~2.10.0"
+    "smile/elasticsuite": "~2.11.0"
   },
   "require-dev": {
      "smile/magento2-smilelab-quality-suite": "^1.1.0"
