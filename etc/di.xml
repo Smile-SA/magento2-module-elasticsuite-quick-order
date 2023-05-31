@@ -27,4 +27,10 @@
             <argument name="searchResultApplierInterfaceFactory" xsi:type="object">elasticsuiteSearchResultApplierInterfaceFactory</argument>
         </arguments>
     </type>
+
+    <type name="Magento\QuickOrder\Model\FulltextSearch">
+        <arguments>
+            <argument name="searchCriteriaBuilder" xsi:type="object">Smile\ElasticsuiteQuickOrder\Search\SearchCriteriaBuilder</argument>
+        </arguments>
+    </type>
 </config>
